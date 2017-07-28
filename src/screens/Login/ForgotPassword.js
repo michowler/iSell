@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,	
   TextInput,
   View,
   StyleSheet,
@@ -8,35 +7,32 @@ import {
   StatusBar,
   Text
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+
 const util = require('util');
 
-export default class LoginForm extends React.Component {
+export default class ForgotPassword extends React.Component {
+  static navigationOptions = {
+    title: 'ForgotPassword',
+  };
+
   render() {
+    const { params } = this.props.navigation;
     return (
     	<View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-      />
+        <StatusBar
+          barStyle="light-content"
+        />
+        <Text>We'll send an email shortly.</Text>
     		<TextInput
           style={styles.input}
-          placeholder="username or email"
+          placeholder="email"
           placeholderTextColor="#FFF"
           returnKeyType="next"
           onSubmitEditing={() => this.passwordInput.focus}
           keyboardType="email-address"
           autoCapitalize="none"
         />
-        <TextInput
-          style={styles.input}
-          placeholder="password"
-          placeholderTextColor="#FFF"
-          returnKeyType="go"
-          secureTextEntry
-          ref={(input) => this.passwordInput = input}
-        />
-        <TouchableOpacity style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>LOGIN</Text>
-        </TouchableOpacity>
     	</View>
     );
   }
@@ -68,4 +64,7 @@ const styles = StyleSheet.create({
 
 });
 
-AppRegistry.registerComponent('iSell', () => iSell);
+const iSell = StackNavigator({
+  ForgotPassword: { screen: ForgotPassword },
+});
+

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,  
   Text,
   View,
   StyleSheet,
@@ -9,9 +8,18 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 import LoginForm from './LoginForm.js';
+import { StackNavigator } from 'react-navigation';
 
-export default class Login extends Component {
+const util = require('util');
+
+export default class Login extends React.Component {
+  static navigationOptions = {
+    title: 'Login',
+  };
+
   render() {
+    console.log("this.props.navigation = " + util.inspect(this.props.navigation, false, null))
+    const { navigate } = this.props.navigation;
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>    
         <View style={styles.logoContainer}>
@@ -22,8 +30,15 @@ export default class Login extends Component {
           <Text style={styles.text}>iSell, the best app ever</Text>
         </View>
         <View style={styles.formContainer}>
+          <Button
+            onPress={
+              () => navigate("ForgotPassword", {})
+            }
+            style={styles.text}
+            title='Forgot Password'
+          />
           <LoginForm/>
-          
+
         </View>
       </KeyboardAvoidingView>
     );
@@ -50,4 +65,7 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('iSell', () => iSell);
+const iSell = StackNavigator({
+  Login: { screen: Login },
+});
+
