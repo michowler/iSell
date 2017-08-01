@@ -23,7 +23,7 @@ export default class ForgotPassword extends React.Component {
         <StatusBar
           barStyle="light-content"
         />
-        <Text>We'll send an email shortly.</Text>
+        
     		<TextInput
           style={styles.input}
           placeholder="email"
@@ -33,6 +33,7 @@ export default class ForgotPassword extends React.Component {
           keyboardType="email-address"
           autoCapitalize="none"
         />
+        <Text>We'll send an email shortly.</Text>
     	</View>
     );
   }

@@ -6,15 +6,16 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry
+  AppRegistry,
+  View
 } from 'react-native';
-import Api from './Api.js';
+import Data from './src/screens/Data/Data.js';
 
-export default class iSell extends Component {
+export default class Api extends Component {
 
   render() {
     return (
-        <Api/>
+          <Data/>
     );
   }
 }
