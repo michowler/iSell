@@ -10,8 +10,10 @@ import {
   Text,
   View,
   TouchableHighlight,
-  StyleSheet
+  StyleSheet,
+  TextInput
 } from 'react-native';
+import Inputs from '../../components/component/TextInput';
 
 export default class Data extends Component {
   getData() {
@@ -19,7 +21,7 @@ export default class Data extends Component {
          .then((response) => response.json())
          .then((responseJson) => {
           this.setState
-           alert(responseJson.name);
+           // alert(responseJson.name);           
          })
          .catch((error) => {
            console.error(error);
@@ -33,28 +35,34 @@ export default class Data extends Component {
   render() {
 
     return (
-        <View style={styles.container}>
-           <TouchableHighlight onPress={this.getData}>
+        <View style={styles.container}>      
+           <TouchableHighlight onPress={this.getData}>           
         	    <Text style={styles.text}>Coding is fun</Text>
-           </TouchableHighlight> 
+             </TouchableHighlight> 
+           <Inputs/>
         </View>
         
     );
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#FF7F50',
-  },
-  text: {
-    paddingTop: 200,
-    alignItems: 'center',
-    flexGrow: 1,
-    justifyContent: 'center',
-    color:'#FFFFFF'
-  }
+      flex: 1,
+      backgroundColor: '#FFA500',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    text: {
+      fontSize: 20,
+      margin: 10,
+    },
+    instructions: {
+      textAlign: 'center',
+      color: '#333333',
+      marginBottom: 5,
+    }
 });
 
 AppRegistry.registerComponent('iSell', () => iSell);
