@@ -34,7 +34,7 @@ export default class Data extends Component {
 
     return (
         <View style={styles.container}>
-           <TouchableHighlight onPress={this._fetchStory}>
+           <TouchableHighlight onPress={this.getData}>
         	    <Text style={styles.text}>Coding is fun</Text>
            </TouchableHighlight> 
         </View>
